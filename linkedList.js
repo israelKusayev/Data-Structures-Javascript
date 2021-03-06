@@ -112,6 +112,27 @@ class LinkedList {
     return this.#size === 1;
   }
 
+  findKthNode(k) {
+    if (k <= 0) return null;
+
+    let target = this.#first;
+    let end = this.#first;
+    let index = 0;
+    while (index < k - 1) {
+      if (!end.next) return null;
+
+      end = end.next;
+      index++;
+    }
+
+    while (end.next) {
+      target = target.next;
+      end = end.next;
+    }
+
+    return target;
+  }
+
   print() {
     let current = this.#first;
     while (current) {
@@ -134,8 +155,9 @@ const linkedList = new LinkedList();
 linkedList.addLast(1);
 linkedList.addLast(2);
 linkedList.addLast(3);
-linkedList.deleteFirst();
-linkedList.deleteFirst();
+linkedList.addLast(4);
+linkedList.addLast(5);
 linkedList.print();
 
+console.log(linkedList.findKthNode(10));
 console.log("size", linkedList.size());
