@@ -133,6 +133,14 @@ class LinkedList {
     return target;
   }
 
+  getLast() {
+    return this.#last.value;
+  }
+
+  getFirst() {
+    return this.#first.value;
+  }
+
   print() {
     let current = this.#first;
     while (current) {
@@ -151,13 +159,4 @@ class LinkedListNode {
   next;
 }
 
-const linkedList = new LinkedList();
-linkedList.addLast(1);
-linkedList.addLast(2);
-linkedList.addLast(3);
-linkedList.addLast(4);
-linkedList.addLast(5);
-linkedList.print();
-
-console.log(linkedList.findKthNode(10));
-console.log("size", linkedList.size());
+module.exports = LinkedList;
