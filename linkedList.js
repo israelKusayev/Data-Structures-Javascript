@@ -30,7 +30,7 @@ class LinkedList {
   deleteFirst() {
     if (this.isEmpty()) return null;
 
-    if (this.hasOnlyOneNode()) this.#first = this.#last = null;
+    if (this.#hasOnlyOneNode()) this.#first = this.#last = null;
     else {
       const first = this.#first;
       this.#first = this.#first.next;
@@ -42,7 +42,7 @@ class LinkedList {
   deleteLast() {
     if (this.isEmpty()) return null;
 
-    if (this.hasOnlyOneNode()) this.#first = this.#last = null;
+    if (this.#hasOnlyOneNode()) this.#first = this.#last = null;
     else {
       const previous = this.#getPrevious(this.#last);
       this.#last = previous;
@@ -85,7 +85,7 @@ class LinkedList {
   }
 
   reverse() {
-    if (this.isEmpty() || this.hasOnlyOneNode()) {
+    if (this.isEmpty() || this.#hasOnlyOneNode()) {
       return;
     }
 
@@ -108,7 +108,7 @@ class LinkedList {
     return this.#size === 0;
   }
 
-  hasOnlyOneNode() {
+  #hasOnlyOneNode() {
     return this.#size === 1;
   }
 
